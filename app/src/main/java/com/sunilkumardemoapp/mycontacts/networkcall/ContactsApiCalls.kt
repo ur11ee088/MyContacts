@@ -1,6 +1,7 @@
 package com.sunilkumardemoapp.mycontacts.networkcall
 
 import com.sunilkumardemoapp.mycontacts.BuildConfig
+import com.sunilkumardemoapp.mycontacts.ui.home.model.ContactsResponse
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -8,10 +9,17 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Query
 import java.util.concurrent.TimeUnit
 
 @JvmSuppressWildcards
 interface ContactsApiCalls {
+
+    @GET("api/")
+    suspend fun getContactsList(
+        @Query("page") page: Int,
+        @Query("results") results: Int
+    ): Response<ContactsResponse>
 
 
 

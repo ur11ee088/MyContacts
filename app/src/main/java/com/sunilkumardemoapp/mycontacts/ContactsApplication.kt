@@ -3,6 +3,7 @@ package com.sunilkumardemoapp.mycontacts
 import android.content.Context
 import androidx.multidex.MultiDex
 import androidx.multidex.MultiDexApplication
+import com.facebook.drawee.backends.pipeline.Fresco
 import com.sunilkumardemoapp.mycontacts.factory.ContactsViewModelFactory
 import com.sunilkumardemoapp.mycontacts.networkcall.ContactsApiCalls
 import com.sunilkumardemoapp.mycontacts.networkcall.NetworkConnectionInterceptor
@@ -21,6 +22,7 @@ class ContactsApplication : MultiDexApplication(), KodeinAware {
 
     override fun onCreate() {
         super.onCreate()
+        Fresco.initialize(this)
 
     }
 
