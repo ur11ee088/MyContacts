@@ -7,6 +7,7 @@ import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.sunilkumardemoapp.mycontacts.R
+import com.sunilkumardemoapp.mycontacts.base.RecyclerViewClickListener
 import com.sunilkumardemoapp.mycontacts.ui.home.model.Result
 
 import com.sunilkumardemoapp.mycontacts.databinding.RecyclerviewContactsBinding
@@ -15,7 +16,7 @@ import com.sunilkumardemoapp.mycontacts.databinding.RecyclerviewContactsBinding
 class ContactsAdapter : PagedListAdapter<Result, ContactsAdapter.ContactsViewHolder>(
     DIFF_CALLBACK
 ) {
-
+     var listener: RecyclerViewClickListener<Result>? =null
 
     companion object {
         private val DIFF_CALLBACK: DiffUtil.ItemCallback<Result> =
@@ -53,6 +54,13 @@ class ContactsAdapter : PagedListAdapter<Result, ContactsAdapter.ContactsViewHol
         getItem(position)?.let { item ->
             holder.binding.viewModel = item
             holder.binding.executePendingBindings()
+
+            holder.binding.container.setOnClickListener {
+                listener?.onRecyclerViewItemClick(
+                    it,
+                    item
+                )
+            }
         }
     }
 

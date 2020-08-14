@@ -2,6 +2,7 @@ package com.sunilkumardemoapp.mycontacts
 
 import android.content.Context
 import android.content.SharedPreferences
+import android.content.res.ColorStateList
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
@@ -10,6 +11,7 @@ import androidx.annotation.StyleRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.Toolbar
+import androidx.core.content.ContextCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -30,30 +32,38 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val toolbar: Toolbar = findViewById(R.id.toolbar)
-        setSupportActionBar(toolbar)
+       // val toolbar: Toolbar = findViewById(R.id.toolbar)
+       //setSupportActionBar(toolbar)
+        val fab: FloatingActionButton = findViewById(R.id.fab)
 
 
         // init shared preferences
         mSharedPref = getPreferences(Context.MODE_PRIVATE)
         if (isNightModeEnabled()) {
+            fab.setImageDrawable(ContextCompat.getDrawable(getBaseContext(), R.drawable.ic_round_day));
+
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            fab.setImageDrawable(ContextCompat.getDrawable(getBaseContext(), R.drawable.ic_round_day));
 
         } else {
+            fab.setBackgroundTintList(ColorStateList.valueOf(ContextCompat.getColor(this,R.color.float_btn_color)))
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         }
 
 
-        val fab: FloatingActionButton = findViewById(R.id.fab)
         fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()
             if (isNightModeEnabled()) {
+                //fab.setBackgroundColor(R.color.colorAccent)
+                fab.setImageDrawable(ContextCompat.getDrawable(getBaseContext(), R.drawable.ic_round_day));
                 setIsNightModeEnabled(false)
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
             } else {
+                fab.setImageDrawable(ContextCompat.getDrawable(getBaseContext(), R.drawable.ic_round_day));
                 setIsNightModeEnabled(true)
 
+                fab.setBackgroundTintList(ColorStateList.valueOf(ContextCompat.getColor(this,R.color.float_btn_color)))
 
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
 
@@ -82,7 +92,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
-            R.id.action_settings->{
+            R.id.menu_item_search->{
                 Log.e("jdskdskdjks","dskdjsjd")
 
                 return true

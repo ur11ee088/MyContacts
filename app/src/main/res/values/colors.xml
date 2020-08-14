@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--Light Color-->
-    <color name="colorPrimary">#f44336</color>
+
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="colorBackground">#ffffff</color>
+
+
+    <color name="blue">#58a5f0</color>
+    <color name="orange">#ff5722</color>
+    <color name="green">#bef67a</color>
+    <color name="float_btn_color">#fdd835</color>
+    <color name="bloavk">#090701</color>
+    <!--<color name="colorPrimary">#f44336</color>
     <color name="colorPrimaryDark">#d32f2f</color>
     <color name="colorAccent">#009688</color>
     <color name="primaryTitleColor">#D9000000</color>
@@ -10,7 +22,7 @@
     <color name="primaryBackgroundColor">#FAFAFA</color>
     <color name="primaryCardBackgroundColor">#F5F5F5</color>
 
-    <!--Night Color-->
+    &lt;!&ndash;Night Color&ndash;&gt;
     <color name="colorPrimaryNight">#212121</color>
     <color name="colorPrimaryDarkNight">#000000</color>
     <color name="colorAccentNight">#f44336</color>
@@ -18,5 +30,5 @@
     <color name="primaryDescriptionColorNight">#B3FFFFFF</color>
     <color name="primaryDateColorNight">#B3FFFFFF</color>
     <color name="primaryBackgroundColorNight">#303030</color>
-    <color name="primaryCardBackgroundColorNight">#424242</color>
+    <color name="primaryCardBackgroundColorNight">#424242</color>-->
 </resources>
