@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph_login_activity"
+    app:startDestination="@id/sendOtpFagment">
+
+    <fragment
+        android:id="@+id/sendOtpFagment"
+        android:name="com.sunilkumardemoapp.mycontacts.ui.login.LoginFragment"
+        android:label="SendOtpFagment">
+       <!-- <action
+            android:id="@+id/actionGoToVerifyOtp"
+            app:destination="@id/verifyOtpFragment" />-->
+    </fragment>
+   <!-- <fragment
+        android:id="@+id/verifyOtpFragment"
+        android:label="VerifyOtpFragment">
+        <argument
+            android:name="OTPResponse"
+            app:argType="com.doctoremr.data.network.responses.OTPResponse" />
+    </fragment>-->
+</navigation>

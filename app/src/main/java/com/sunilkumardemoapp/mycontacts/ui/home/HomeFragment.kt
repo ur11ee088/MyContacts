@@ -33,6 +33,7 @@ class HomeFragment : BaseFragment(),RecyclerViewClickListener<Result> {
         savedInstanceState: Bundle?
     ): View? {
         viewModel = ViewModelProvider(this, factory).get(HomeViewModel::class.java)
+        setViewModel(viewModel)
 
         binding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
@@ -61,53 +62,6 @@ class HomeFragment : BaseFragment(),RecyclerViewClickListener<Result> {
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
-        inflater.inflate(R.menu.main, menu)
-        setUpSearchViewListener(menu)
-    }
-    private fun setUpSearchViewListener(menu: Menu) {
-        val searchItem: MenuItem = menu.findItem(R.id.menu_item_search)
-        val searchView = searchItem.actionView as SearchView
-
-        searchView.apply {
-
-            setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-                override fun onQueryTextSubmit(query: String?): Boolean {
-
-                    return true
-                }
-
-                override fun onQueryTextChange(newText: String?): Boolean {
-
-                    if (newText != null && newText.length >= 3) {
-
-                        Log.e("ashsjhsjkhskjd","skjdhdk"+newText)
-
-
-                    }
-
-
-
-                    return false
-                }
-
-            })
-
-        }
-        searchView.setOnSuggestionListener(object: SearchView.OnSuggestionListener {
-            override fun onSuggestionSelect(position: Int): Boolean {
-                return false
-            }
-
-            override fun onSuggestionClick(position: Int): Boolean {
-                val cursor = searchView.suggestionsAdapter.getItem(position) as Cursor
-                val selection = cursor.getString(cursor.getColumnIndex(SearchManager.SUGGEST_COLUMN_TEXT_1))
-                searchView.setQuery(selection, false)
-
-                return true
-            }
-
-        })
-
     }
 
     override fun onRecyclerViewItemClick(view: View, item: Result) {

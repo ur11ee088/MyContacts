@@ -32,7 +32,11 @@ abstract class BaseFragment : Fragment(), CoroutineScope, KodeinAware {
     }
 
     protected fun setViewModel(viewModel: BaseViewModel) {
+
+        Log.e("hdfdhfkdhf","jjkfdf")
+
         viewModel.error.observe(viewLifecycleOwner, Observer {
+            Log.e("hdfdhfkdhf","jjkfdf"+it.code)
 
 
                 when (it.code) {
